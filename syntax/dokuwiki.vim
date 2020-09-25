@@ -107,24 +107,24 @@ syn match dokuwikiSmiley "\(:-\\\|:-?\|:-D\|:-P\|:-o\|:-O\|:-x\)" contains=@NoSp
 syn match dokuwikiSmiley "\(:-X\|:-|\|;-)\|m(\|\^_\^\|:?:\|:!:\)\|LOL\|FIXME\|DELETEME" contains=@NoSpell
 
 " Entities: http://github.com/splitbrain/dokuwiki/blob/master/conf/entities.conf
-syn match dokuwikiEntities "<->" conceal cchar=↔
-syn match dokuwikiEntities "->" conceal cchar=→
-syn match dokuwikiEntities "<-\ze\([^>]\|$\)" conceal cchar=←
-syn match dokuwikiEntities "<=>" conceal cchar=⇔
-syn match dokuwikiEntities "=>" conceal cchar=⇒
-syn match dokuwikiEntities "<=\ze\([^>]\|$\)" conceal cchar=⇐
+"syn match dokuwikiEntities "<->" conceal cchar=↔
+"syn match dokuwikiEntities "->" conceal cchar=→
+"syn match dokuwikiEntities "<-\ze\([^>]\|$\)" conceal cchar=←
+"syn match dokuwikiEntities "<=>" conceal cchar=⇔
+"syn match dokuwikiEntities "=>" conceal cchar=⇒
+"syn match dokuwikiEntities "<=\ze\([^>]\|$\)" conceal cchar=⇐
 
-syn match dokuwikiEntities "\( \|^\|\d\)\zsx\ze\d" conceal cchar=×
-syn match dokuwikiEntities "\C\d\zsx\ze\($\|\s\|[0-9A-Z]\)" conceal cchar=×
+"syn match dokuwikiEntities "\( \|^\|\d\)\zsx\ze\d" conceal cchar=×
+"syn match dokuwikiEntities "\C\d\zsx\ze\($\|\s\|[0-9A-Z]\)" conceal cchar=×
 
-syn match dokuwikiEntities "<<" conceal cchar=«
-syn match dokuwikiEntities ">>" conceal cchar=»
-syn match dokuwikiEntities "--\ze\([^-]\|$\)" conceal cchar=–
-syn match dokuwikiEntities "---\ze\([^-]\|$\)" conceal cchar=—
-syn match dokuwikiEntities "(c)" conceal cchar=©
-syn match dokuwikiEntities "(tm)" conceal cchar=™
-syn match dokuwikiEntities "(r)" conceal cchar=®
-syn match dokuwikiEntities "\.\.\." conceal cchar=…
+"syn match dokuwikiEntities "<<" conceal cchar=«
+"syn match dokuwikiEntities ">>" conceal cchar=»
+"syn match dokuwikiEntities "--\ze\([^-]\|$\)" conceal cchar=–
+"syn match dokuwikiEntities "---\ze\([^-]\|$\)" conceal cchar=—
+"syn match dokuwikiEntities "(c)" conceal cchar=©
+"syn match dokuwikiEntities "(tm)" conceal cchar=™
+"syn match dokuwikiEntities "(r)" conceal cchar=®
+"syn match dokuwikiEntities "\.\.\." conceal cchar=…
 
 " Links: implicit, or [[target|optional link text]] or [[target|{{image file|optional caption}}]]
 " http://github.com/splitbrain/dokuwiki/blob/master/conf/scheme.conf
@@ -216,7 +216,8 @@ hi def dokuwikiHeading3mg term=bold cterm=bold ctermfg=4 gui=bold guifg=#9966ff
 hi def dokuwikiHeading4mg term=bold cterm=bold ctermfg=1 gui=bold guifg=#6699ff
 hi def dokuwikiHeading5mg term=bold cterm=bold ctermfg=6 gui=bold guifg=#33ccff
 
-hi def dokuwikiBold term=bold cterm=bold gui=bold
+"hi def dokuwikiBold term=bold cterm=bold gui=bold
+hi def dokuwikiBold term=bold cterm=bold gui=bold ctermfg=0 ctermbg=7 guifg=#000000 guibg=#ffffff
 hi def dokuwikiItalic term=italic cterm=italic gui=italic
 hi def dokuwikiUnderlined term=underline cterm=underline gui=underline
 hi link dokuwikiMonospaced Type
