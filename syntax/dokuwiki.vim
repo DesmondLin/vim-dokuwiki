@@ -85,19 +85,13 @@ syn region dokuwikiNowiki start=+<nowiki>+ end=+</nowiki>+
 
 syn cluster dokuwikiNoFold contains=dokuwikiHeading1mg,dokuwikiHeading2mg,dokuwikiHeading3mg,dokuwikiHeading4mg,dokuwikiHeading5mg
 " Heading: ==== title ====
-syn match dokuwikiHeading1mg "^=\{6}\zs[^=]*\ze=\{6}$" contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading3,dokuwikiHeading2,Folded
-syn match dokuwikiHeading2mg "^=\{5}\zs[^=]*\ze=\{5}$" contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading4,dokuwikiHeading3
-syn match dokuwikiHeading3mg "^=\{4}\zs[^=]*\ze=\{4}$" contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading3
-syn match dokuwikiHeading4mg "^=\{3}\zs[^=]*\ze=\{3}$" contains=@Spell,@dokuwikiBlockItems,dokuwikiList
-syn match dokuwikiHeading5mg "^=\{2}\zs[^=]*\ze=\{2}$" contains=@Spell,@dokuwikiBlockItems,dokuwikiList
-syn region dokuwikiHeading1 start="^=\{6}[^=]\+=\{6}$" end="^\ze\(=\{6,6}\).*\1$" transparent fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading6,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading3,dokuwikiHeading2,dokuwikiHeading1mg
-"syn region dokuwikiHeading1 start="^=\{6}" end="=\{6}$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading3,dokuwikiHeading2
-"hi link dokuwikiHeading1 dokuwikiHeading1mg
-"syn region dokuwikiHeading1mg start="^=\{6}" end="=\{6}$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading3,dokuwikiHeading2
-syn region dokuwikiHeading2 start="^=\{5}.\+=\{5}$" end="^\ze\(=\{5,6}\).*\1$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading3,dokuwikiHeading1mg,dokuwikiHeading2mg
-syn region dokuwikiHeading3 start="^=\{4}.\+=\{4}$" end="^\ze\(=\{4,6}\).*\1$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading4,dokuwikiHeading1mg,dokuwikiHeading2mg,dokuwikiHeading3mg
-syn region dokuwikiHeading4 start="^=\{3}.\+=\{3}$" end="^\ze\(=\{3,6}\).*\1$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5,dokuwikiHeading1mg,dokuwikiHeading2mg,dokuwikiHeading3mg,dokuwikiHeading4mg
-syn region dokuwikiHeading5 start="^=\{2}.\+=\{2}$" end="^\ze\(=\{2,6}\).*\1$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading1mg,dokuwikiHeading2mg,dokuwikiHeading3mg,dokuwikiHeading4mg,dokuwikiHeading5mg
+syn match dokuwikiHeading1mg "^=\{6}\zs[^=].\{-}\ze=\{6}$"
+syn match dokuwikiHeading2mg "^=\{5}\zs[^=].\{-}\ze=\{5}$"
+syn match dokuwikiHeading3mg "^=\{4}\zs[^=].\{-}\ze=\{4}$"
+syn match dokuwikiHeading4mg "^=\{3}\zs[^=].\{-}\ze=\{3}$"
+syn match dokuwikiHeading5mg "^=\{2}\zs[^=].\{-}\ze=\{2}$"
+
+syn region dokuwikiHeading5 start="^\(=\{2,6}\).\+\1$" end="^\ze\(=\{2,6}\).*\1$" fold contains=@Spell,@dokuwikiBlockItems,dokuwikiList,dokuwikiHeading5mg,dokuwikiHeading4mg,dokuwikiHeading3mg,dokuwikiHeading2mg,dokuwikiHeading1mg
 
 " Basic Formatting: **bold**, //italic//, __underline__, ''monospace'', etc
 " A matchgroup is necessary to make concealends work with regions.
@@ -219,11 +213,24 @@ hi link dokuwikiLinebreak Keyword
 
 hi link dokuwikiNowiki Exception
 
-hi def dokuwikiHeading1mg term=bold cterm=bold ctermfg=1 gui=bold guifg=#ffffff
-hi def dokuwikiHeading2mg term=bold cterm=bold ctermfg=2 gui=bold guifg=#cc33ff
-hi def dokuwikiHeading3mg term=bold cterm=bold ctermfg=3 gui=bold guifg=#9966ff
-hi def dokuwikiHeading4mg term=bold cterm=bold ctermfg=4 gui=bold guifg=#6699ff
-hi def dokuwikiHeading5mg term=bold cterm=bold ctermfg=5 gui=bold guifg=#33ccff
+" Dark color
+"hi def dokuwikiHeading1mg term=bold cterm=bold ctermfg=1 gui=bold guifg=#AA0000
+"hi def dokuwikiHeading2mg term=bold cterm=bold ctermfg=2 gui=bold guifg=#00AA00
+"hi def dokuwikiHeading3mg term=bold cterm=bold ctermfg=3 gui=bold guifg=#AA5500
+"hi def dokuwikiHeading4mg term=bold cterm=bold ctermfg=4 gui=bold guifg=#0000AA
+"hi def dokuwikiHeading5mg term=bold cterm=bold ctermfg=5 gui=bold guifg=#AA00AA
+" Light color #1
+hi def dokuwikiHeading1mg term=bold cterm=bold ctermfg=1 gui=bold guifg=#FF5555
+hi def dokuwikiHeading2mg term=bold cterm=bold ctermfg=2 gui=bold guifg=#55FF55
+hi def dokuwikiHeading3mg term=bold cterm=bold ctermfg=3 gui=bold guifg=#FFFF55
+hi def dokuwikiHeading4mg term=bold cterm=bold ctermfg=4 gui=bold guifg=#5555FF
+hi def dokuwikiHeading5mg term=bold cterm=bold ctermfg=5 gui=bold guifg=#FF55FF
+" Light color #2
+"hi def dokuwikiHeading1mg term=bold cterm=bold ctermfg=1 gui=bold guifg=#FF0000
+"hi def dokuwikiHeading2mg term=bold cterm=bold ctermfg=2 gui=bold guifg=#00FF00
+"hi def dokuwikiHeading3mg term=bold cterm=bold ctermfg=3 gui=bold guifg=#FFFF00
+"hi def dokuwikiHeading4mg term=bold cterm=bold ctermfg=4 gui=bold guifg=#0000FF
+"hi def dokuwikiHeading5mg term=bold cterm=bold ctermfg=5 gui=bold guifg=#FF00FF
 
 "hi def dokuwikiBold term=bold cterm=bold gui=bold
 hi def dokuwikiBold term=bold cterm=bold gui=bold ctermfg=0 ctermbg=7 guifg=#000000 guibg=#ffffff
